@@ -1,0 +1,24 @@
+node_modules
+.wrangler
+
+# Environment & secrets
+.env
+.env.*
+.dev.vars
+*.pem
+*.key
+
+# Build artifacts
+dist
+.cache
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea
+.vscode

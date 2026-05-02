@@ -1,0 +1,20 @@
+name = "gosu_ke"
+main = "src/index.tsx"
+compatibility_date = "2024-09-02"
+
+assets = { directory = "./public/" }
+
+routes = [
+  { pattern = "gosu.ke", custom_domain = true },
+]
+
+# KV: 静的化したフィード/イベント等のキャッシュ。
+# 本番では `wrangler kv namespace create SITE_KV` で発行した id を入れる。
+# ローカル(dev)は miniflare がエミュレートするので id ダミーでよい。
+[[kv_namespaces]]
+binding = "SITE_KV"
+id      = "426e5b6c3a804b749d746a2e8a1b44f1"
+
+# Cron Triggers: 毎時0分に scheduled ハンドラを起動
+[triggers]
+crons = ["0 * * * *"]
