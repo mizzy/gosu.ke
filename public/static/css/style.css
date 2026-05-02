@@ -192,9 +192,17 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .career-company {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--fg);
+}
+.career-span {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
 }
 .career-role {
   margin: 4px 0 0;

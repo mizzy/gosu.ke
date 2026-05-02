@@ -11,10 +11,10 @@ export const CareerPage = () => {
       {career.map((c) => (
         <section class="section">
           <div class="section-head">
-            <h2 class="label">{c.span}</h2>
+            <h2 class="career-company">{c.company}</h2>
+            <p class="career-span">{c.span}</p>
           </div>
           <div class="career-entry">
-            <p class="career-company">{c.company}</p>
             {c.role ? <p class="career-role">{c.role}</p> : null}
             {c.details && c.details.length ? (
               <ul class="career-list">
