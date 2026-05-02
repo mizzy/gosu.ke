@@ -5,7 +5,7 @@ import type { HtmlEscapedString } from 'hono/utils/html'
 import { Footer } from './components/Footer'
 
 const SITE_URL = 'https://gosu.ke'
-const OG_IMAGE = `${SITE_URL}/static/images/profile.jpg`
+const OG_IMAGE = `${SITE_URL}/static/images/og.webp`
 const DEFAULT_DESCRIPTION =
   'Profile site of Gosuke Miyashita — freelance software engineer. OSS, talks, writing, and career.'
 
@@ -37,6 +37,10 @@ export const layout = (
         <meta property="og:type" content="website" />
         <meta property="og:url" content="${url}" />
         <meta property="og:image" content="${OG_IMAGE}" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@gosukenator" />
       </head>
       <body>
         <div class="wrapper">
