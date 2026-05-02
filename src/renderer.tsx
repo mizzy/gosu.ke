@@ -6,9 +6,12 @@ import { Footer } from './components/Footer'
 
 const SITE_URL = 'https://gosu.ke'
 const OG_IMAGE = `${SITE_URL}/static/images/profile.jpg`
+const DEFAULT_DESCRIPTION =
+  'Profile site of Gosuke Miyashita — freelance software engineer. OSS, talks, writing, and career.'
 
 type LayoutOptions = {
   path?: string  // canonical / og:url 用 (例: '/', '/achievements')
+  description?: string
 }
 
 export const layout = (
@@ -17,12 +20,14 @@ export const layout = (
   options: LayoutOptions = {}
 ) => {
   const url = `${SITE_URL}${options.path ?? '/'}`
+  const description = options.description ?? DEFAULT_DESCRIPTION
   return html`<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>${title}</title>
+        <meta name="description" content="${description}" />
         <link rel="canonical" href="${url}" />
         <link rel="icon" type="image/jpeg" href="/static/images/favicon.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,6 +35,7 @@ export const layout = (
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/static/css/style.css" />
         <meta property="og:title" content="${title}" />
+        <meta property="og:description" content="${description}" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="${url}" />
         <meta property="og:image" content="${OG_IMAGE}" />

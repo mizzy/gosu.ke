@@ -3,8 +3,8 @@
 :root {
   --bg:     #eceef2;
   --fg:     #1a2230;
-  --dim:    #6c7589;
-  --rule:   #d8dde6;
+  --dim:    #535d72;   /* 旧 #6c7589 — WCAG AA 5.7:1 */
+  --rule:   #b8c0cf;   /* 旧 #d8dde6 — 罫線をライトモードで視認可能に */
   --accent: #2a4a8c;
   --link:   #2a4a8c;
 
