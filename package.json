@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev --local --live-reload",
+    "dev": "wrangler dev --local --live-reload --test-scheduled",
     "deploy": "wrangler deploy --minify"
   },
   "dependencies": {

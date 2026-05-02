@@ -11,9 +11,12 @@ export const FeaturedSection = () => {
   //   - トップ論文
   //   - Serverspec (O'Reilly Japan, 著)
   //   - Infrastructure as Code (O'Reilly Japan, 監訳)
-  //   - 初の海外登壇 (talks は新しい順なので、intl の最後 = 最古を取る)
+  //   - 初の海外登壇 (RubyConf Taiwan 2012)
+  //     talks は新しい順なので、intl の最後 = 最古を取る
+  //   - ChefConf 2014 (Serverspec の海外プロジェクト紹介)
   const intlTalks = achievements.talks.items.filter((i) => i.country === 'intl')
   const firstIntlTalk = intlTalks[intlTalks.length - 1]
+  const chefConfTalk = achievements.talks.items.find((i) => i.venue === 'ChefConf 2014')
 
   const picks = [
     achievements.awards.items[0],
@@ -22,6 +25,7 @@ export const FeaturedSection = () => {
     achievements.writing.items.find((i) => i.title === 'Serverspec'),
     achievements.writing.items.find((i) => i.title === 'Infrastructure as Code'),
     firstIntlTalk,
+    chefConfTalk,
   ].filter(Boolean) as typeof achievements.awards.items
 
   return (
