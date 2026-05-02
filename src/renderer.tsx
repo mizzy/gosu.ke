@@ -30,9 +30,7 @@ export const layout = (
         <meta name="description" content="${description}" />
         <link rel="canonical" href="${url}" />
         <link rel="icon" type="image/jpeg" href="/static/images/favicon.jpg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link rel="preload" as="font" type="font/woff2" href="/static/fonts/inter-latin.woff2" crossorigin />
         <link rel="stylesheet" href="/static/css/style.css" />
         <meta property="og:title" content="${title}" />
         <meta property="og:description" content="${description}" />

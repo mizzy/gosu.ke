@@ -1,0 +1,11 @@
+# Long-cache static assets. Files are content-addressed at the asset
+# level by Cloudflare, but we add explicit headers for crawler
+# friendliness and PageSpeed scoring.
+/static/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/static/images/*
+  Cache-Control: public, max-age=2592000
+
+/static/css/*
+  Cache-Control: public, max-age=86400
