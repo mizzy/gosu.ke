@@ -26,8 +26,8 @@ const app = new Hono<{ Bindings: Bindings }>()
 app.use('*', secureHeaders({
   contentSecurityPolicy: {
     defaultSrc: ["'self'"],
-    styleSrc: ["'self'", 'https://fonts.googleapis.com'],
-    fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+    styleSrc: ["'self'"],
+    fontSrc: ["'self'"],
     imgSrc: ["'self'", 'data:'],
     // Cloudflare Insights の beacon (static.cloudflareinsights.com から)
     // を許可。RUM 自体はゾーンで無効化済みだが、Cloudflare がページに
