@@ -29,8 +29,11 @@ app.use('*', secureHeaders({
     styleSrc: ["'self'", 'https://fonts.googleapis.com'],
     fontSrc: ["'self'", 'https://fonts.gstatic.com'],
     imgSrc: ["'self'", 'data:'],
-    scriptSrc: ["'self'"],
-    connectSrc: ["'self'"],
+    // Cloudflare Insights の beacon (static.cloudflareinsights.com から)
+    // を許可。RUM 自体はゾーンで無効化済みだが、Cloudflare がページに
+    // beacon.min.js を自動注入するため CSP 側で許可しないとブロック警告が出る。
+    scriptSrc: ["'self'", 'https://static.cloudflareinsights.com'],
+    connectSrc: ["'self'", 'https://cloudflareinsights.com'],
     frameAncestors: ["'none'"],
     baseUri: ["'self'"],
     formAction: ["'self'"],
@@ -60,16 +63,36 @@ app.get('/', async (c) => {
   return c.html(layout(
     'Gosuke Miyashita',
     <HomePage repos={repos} mizzyOrg={mizzyOrg} hateblo={hateblo} speakerdeck={speakerdeck} events={events} />,
-    { path: '/' }
+    {
+      path: '/',
+      description:
+        'Gosuke Miyashita — freelance software engineer. OSS, talks, writing, and career.',
+    }
   ))
 })
 
 app.get('/achievements', (c) =>
-  c.html(layout('Achievements — Gosuke Miyashita', <AchievementsPage />, { path: '/achievements' }))
+  c.html(layout(
+    'Achievements — Gosuke Miyashita',
+    <AchievementsPage />,
+    {
+      path: '/achievements',
+      description:
+        'Awards, papers, books, articles, and talks by Gosuke Miyashita.',
+    }
+  ))
 )
 
 app.get('/career', (c) =>
-  c.html(layout('Career — Gosuke Miyashita', <CareerPage />, { path: '/career' }))
+  c.html(layout(
+    'Career — Gosuke Miyashita',
+    <CareerPage />,
+    {
+      path: '/career',
+      description:
+        'Career history of Gosuke Miyashita — from ITOCHU Techno-Science to paperboy&co. to freelance.',
+    }
+  ))
 )
 
 export default {
