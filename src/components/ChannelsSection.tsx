@@ -5,6 +5,8 @@ import { safeUrl } from '../lib/url'
 const accounts = [
   { kind: 'GitHub',       value: 'mizzy',                  url: 'https://github.com/mizzy' },
   { kind: 'X',            value: 'gosukenator',            url: 'https://x.com/gosukenator' },
+  { kind: 'Bluesky',      value: 'mizzy.bsky.social',      url: 'https://bsky.app/profile/mizzy.bsky.social' },
+  { kind: 'mixi2',        value: 'mizzy',                  url: 'https://mixi.social/@mizzy' },
   { kind: 'Speaker Deck', value: 'mizzy',                  url: 'https://speakerdeck.com/mizzy' },
   { kind: 'Blog',         value: 'mizzy.org',              url: 'https://mizzy.org/' },
   { kind: 'Hatena',       value: 'mizzy.hateblo.jp',       url: 'https://mizzy.hateblo.jp/' },
