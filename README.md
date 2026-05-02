@@ -17,7 +17,8 @@ npm run dev
 
 Opens `http://localhost:8787`.
 
-To trigger the cron handler locally (Miniflare does not run crons automatically):
+Miniflare does not run crons automatically, but `npm run dev` enables
+`--test-scheduled` so you can trigger the handler manually:
 
 ```sh
 # in another shell
