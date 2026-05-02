@@ -3,6 +3,10 @@
 // - mizzy.org    : Atom フィードから動的取得 (1h キャッシュ)
 // - hateblo      : RSS フィードから動的取得 (1h キャッシュ)
 // - speakerdeck  : Atom フィードから動的取得 (1h キャッシュ)
+//
+// キャッシュ層の選定: RSS/Atom は軽量で取得失敗しても fallback がある。
+// per-edge の Cache API で十分。グローバル一貫性や定期 ingest が
+// 必要になったら events.ts のように KV+Cron に寄せる。
 
 import { decodeEntities, toDateStr } from '../lib/feed'
 

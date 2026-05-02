@@ -1,6 +1,10 @@
 // src/data/repos.ts
 // 看板OSSリポジトリ。Stars は GitHub API から動的に取得し、
 // Cloudflare Cache API で 24h キャッシュする。
+//
+// キャッシュ層の選定: GitHub API は軽量で、4 リポを並列に叩いても
+// 数百ms で済む。per-edge の Cache API で十分。グローバル一貫性が
+// 必要なら events.ts のように KV+Cron に寄せる(現状その必要なし)。
 
 export type Repo = {
   name: string
