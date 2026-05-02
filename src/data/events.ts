@@ -2,6 +2,13 @@
 // connpass 参加イベントを KV から読む(静的化)。
 // KV への書き込みは scheduled ハンドラ経由 (Cron Triggers)。
 // 取り込み元は connpass の公開ユーザーページ HTML (hCalendar / vevent)。
+//
+// なぜ KV (repos.ts / writing.ts は Cache API なのに):
+//   HTML スクレイピングは RSS/Atom より重く、 every-edge で取りに行くと
+//   connpass への負荷も応答時間も悪化する。一箇所(scheduled)で取って
+//   グローバルな KV に置けば、各エッジは KV を読むだけで済む。
+//   軽量な RSS/Atom (writing.ts) や API ピンポイント取得 (repos.ts) は
+//   per-edge Cache API で十分なので使い分けている。
 
 import { decodeEntities, toDateStr } from '../lib/feed'
 
