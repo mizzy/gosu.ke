@@ -15,12 +15,22 @@ export const ChannelsSection = () => {
   return (
     <Section label="Channels">
       <ul class="rows">
-        {accounts.map((a) => (
-          <li class="row row-channel">
-            <span class="row-kind">{a.kind}</span>
-            <a class="row-link" href={safeUrl(a.url)} target="_blank" rel="noopener noreferrer">{a.value}</a>
-          </li>
-        ))}
+        {accounts.map((a) => {
+          const isExternal = a.url.startsWith('http://') || a.url.startsWith('https://')
+          return (
+            <li class="row row-channel">
+              <span class="row-kind">{a.kind}</span>
+              <a
+                class="row-link"
+                href={safeUrl(a.url)}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+              >
+                {a.value}
+              </a>
+            </li>
+          )
+        })}
       </ul>
     </Section>
   )

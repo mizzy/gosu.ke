@@ -65,6 +65,7 @@ export const achievements: AchievementsData = {
   talks: {
     ja: '登壇', en: 'Talks',
     items: [
+      { year: 2025, month: 11, title: 'なぜインフラコードのモジュール化は難しいのか - アプリケーションコードとの本質的な違いから考える', venue: 'YAPC::Fukuoka 2025', url: 'https://speakerdeck.com/mizzy/yapc-fukuoka-2025', country: 'jp' },
       { year: 2020, month: 11, title: 'Infrastructure as Codeのこれまでとこれから', venue: '第5回さくらインターネット研究会', url: 'https://speakerdeck.com/mizzy/past-and-future-of-infrastructure-as-code', country: 'jp' },
       { year: 2020, month: 11, title: 'Configuration Managementツールのポリシー定義用中間言語に関する考察', venue: '第7回 WSA研究会', url: 'https://mizzy.org/blog/2020/11/06/1', country: 'jp' },
       { year: 2020, month: 4,  title: 'Infrastructure as Codeのこれまでとこれから', venue: 'Infra Study Meetup #1', url: 'https://speakerdeck.com/mizzy/infra-study-meetup-number-1', country: 'jp' },
@@ -81,7 +82,6 @@ export const achievements: AchievementsData = {
       { year: 2014, month: 3,  title: 'Immutable Infrastructure時代の構成管理ツールSpecInfra', venue: 'JAWS DAYS 2014', url: 'https://speakerdeck.com/mizzy/specinfra-at-jaws-days-2014', country: 'jp' },
       { year: 2014, month: 3,  title: 'Immutable InfrastructureとProvisioning Testing', venue: 'Immutable Infrastructure Conference #1', url: 'https://speakerdeck.com/mizzy/immutable-infrastructure-and-provisioning-testing-at-immutable-infrastructure-conference-number-01', country: 'jp' },
       { year: 2014, month: 2,  title: 'サーバプロビジョニングのこれまでとこれから', venue: 'Developers Summit 2014', url: 'https://speakerdeck.com/mizzy/future-of-server-provisioning-at-developers-summit-2014', country: 'jp' },
-      { year: 2013, month: 12, title: 'Inside Sqale\'s Backend', venue: 'RubyConf Taiwan 2012', url: 'https://www.slideshare.net/mizzy/inside-sqales-backend-at-rubyconf-taiwan-2012', country: 'intl' },
       { year: 2013, month: 11, title: 'サーバプロビジョニングのこれまでとこれから', venue: '週末ランサーズ 第5回', url: 'https://speakerdeck.com/mizzy/future-of-server-provisioning', country: 'jp' },
       { year: 2013, month: 10, title: 'Sqaleでcgroupsにfork bomb対策を入れた話', venue: '第2回 コンテナ型仮想化の情報交換会', url: 'https://speakerdeck.com/mizzy/sqaledecgroupsnifork-bombdui-ce-woru-retahua-at-di-2hui-kontenaxing-jia-xiang-hua-falseqing-bao-jiao-huan-hui-dong-jing', country: 'jp' },
       { year: 2013, month: 7,  title: 'Serverspec', venue: 'JTF 2013', url: 'https://www.slideshare.net/mizzy/serverspec-jtf2013', country: 'jp' },

@@ -24,8 +24,10 @@ export const Section = ({ label, sub, right, children }: Props) => {
   )
 }
 
-// 内部リンク (`/foo`) も許容するため、相対パスは素通り、絶対URLのみ safeUrl で検証する。
-const linkHref = (href: string): string => (href.startsWith('/') ? href : safeUrl(href))
+// 内部リンク (`/foo`) は素通り、絶対URLは safeUrl で検証する。
+// `//` 始まりの protocol-relative URL は外部リンク扱いで safeUrl に流して弾く。
+const linkHref = (href: string): string =>
+  href.startsWith('/') && !href.startsWith('//') ? href : safeUrl(href)
 
 export const ViewAll = ({ href, children }: { href: string; children: any }) => (
   <a class="view-all" href={linkHref(href)}>{children}</a>

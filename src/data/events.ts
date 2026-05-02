@@ -3,6 +3,8 @@
 // KV への書き込みは scheduled ハンドラ経由 (Cron Triggers)。
 // 取り込み元は connpass の公開ユーザーページ HTML (hCalendar / vevent)。
 
+import { decodeEntities, toDateStr } from '../lib/feed'
+
 export type EventItem = {
   title: string
   date: string  // YYYY-MM-DD
@@ -13,24 +15,6 @@ const KV_KEY = 'events:connpass:v1'
 const LIMIT = 5
 const USER_PAGE = 'https://connpass.com/user/mizzy/'
 
-const decodeEntities = (s: string): string =>
-  s
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&apos;/g, "'")
-
-const toDateStr = (raw: string): string => {
-  const d = new Date(raw.trim())
-  if (isNaN(d.getTime())) return raw.trim().slice(0, 10)
-  const y = d.getUTCFullYear()
-  const m = String(d.getUTCMonth() + 1).padStart(2, '0')
-  const day = String(d.getUTCDate()).padStart(2, '0')
-  return `${y}-${m}-${day}`
-}
-
 const parseConnpass = (html: string): EventItem[] => {
   const items: EventItem[] = []
   const blockRe = /<div class="event_list vevent">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g
@@ -38,7 +22,7 @@ const parseConnpass = (html: string): EventItem[] => {
     const dt = block.match(/<span class="dtstart">[\s\S]*?title="([^"]+)"/)?.[1]
     const linkMatch = block.match(/<a class="url summary"\s+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/)
     if (!dt || !linkMatch) continue
-    const url = linkMatch[1]
+    const url = decodeEntities(linkMatch[1])
     const stripped = linkMatch[2].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
     const title = decodeEntities(stripped)
     items.push({ title, url, date: toDateStr(dt) })

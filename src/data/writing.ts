@@ -4,6 +4,8 @@
 // - hateblo      : RSS フィードから動的取得 (1h キャッシュ)
 // - speakerdeck  : Atom フィードから動的取得 (1h キャッシュ)
 
+import { decodeEntities, toDateStr } from '../lib/feed'
+
 export type WritingItem = {
   title: string
   date: string // YYYY-MM-DD
@@ -11,25 +13,6 @@ export type WritingItem = {
 }
 
 const cacheTtlSec = 3600
-
-const decodeEntities = (s: string): string =>
-  s
-    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&apos;/g, "'")
-
-const toDateStr = (raw: string): string => {
-  const d = new Date(raw.trim())
-  if (isNaN(d.getTime())) return raw.trim().slice(0, 10)
-  const y = d.getUTCFullYear()
-  const m = String(d.getUTCMonth() + 1).padStart(2, '0')
-  const day = String(d.getUTCDate()).padStart(2, '0')
-  return `${y}-${m}-${day}`
-}
 
 const parseAtom = (xml: string): WritingItem[] => {
   const items: WritingItem[] = []
