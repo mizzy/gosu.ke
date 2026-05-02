@@ -172,14 +172,14 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .row-co { color: var(--dim); }
 .tag { color: var(--dim); }
 
-/* ------ Achievements page ------ */
-.achievements-back {
+/* ------ Sub pages (Achievements / Career) ------ */
+.page-back {
   margin: 0 0 24px;
   font-size: 12px;
   color: var(--dim);
 }
-.achievements-back a { color: var(--dim); }
-.achievements-title {
+.page-back a { color: var(--dim); }
+.page-title {
   margin: 0 0 24px;
   font-size: 28px;
   font-weight: 600;

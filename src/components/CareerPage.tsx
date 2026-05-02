@@ -4,9 +4,9 @@ import { career } from '../data/career'
 
 export const CareerPage = () => {
   return (
-    <main class="achievements">
-      <p class="achievements-back"><a href="/">← Back to home</a></p>
-      <h1 class="achievements-title">Career</h1>
+    <main class="page">
+      <p class="page-back"><a href="/">← Back to home</a></p>
+      <h1 class="page-title">Career</h1>
 
       {career.map((c) => (
         <section class="section">

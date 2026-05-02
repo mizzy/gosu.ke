@@ -14,9 +14,9 @@ export const AchievementsPage = () => {
   ]
 
   return (
-    <main class="achievements">
-      <p class="achievements-back"><a href="/">← Back to home</a></p>
-      <h1 class="achievements-title">Achievements</h1>
+    <main class="page">
+      <p class="page-back"><a href="/">← Back to home</a></p>
+      <h1 class="page-title">Achievements</h1>
 
       {cats.map((cat) => (
         <section class="section">
