@@ -8,7 +8,6 @@ const accounts = [
   { kind: 'Speaker Deck', value: 'mizzy',                  url: 'https://speakerdeck.com/mizzy' },
   { kind: 'Blog',         value: 'mizzy.org',              url: 'https://mizzy.org/' },
   { kind: 'Hatena',       value: 'mizzy.hateblo.jp',       url: 'https://mizzy.hateblo.jp/' },
-  { kind: 'Email',        value: 'gosukenator@gmail.com',  url: 'mailto:gosukenator@gmail.com' },
 ]
 
 export const ChannelsSection = () => {
