@@ -46,6 +46,7 @@ export const achievements: AchievementsData = {
   writing: {
     ja: '書籍・記事', en: 'Writing',
     items: [
+      { year: 2026, month: 2,  title: 'OSSは特別じゃない。アウトプットを30年間続けてきて得たもの', venue: 'Findy', url: 'https://findy-code.io/media/articles/codesidechat-gosukenator' },
       { year: 2019, month: 10, title: '「超個体型データセンター」コンセプトで目指す未来像', venue: 'ASCII.jp TECH 連載', url: 'https://ascii.jp/elem/000/001/963/1963013/' },
       { year: 2018, month: 3,  title: 'オープンさは私のキャリアの原動力', venue: 'GeekOut', url: 'https://geek-out.jp/column/entry/2018/03/08/110000/' },
       { year: 2018, month: 1,  title: '「一つのことをうまくやる」に忠実たれ', venue: 'エンジニアHub', url: 'https://eh-career.com/engineerhub/entry/2018/01/31/110000' },
