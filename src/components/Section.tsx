@@ -1,12 +1,13 @@
 // src/components/Section.tsx
 // セクションラッパー: 上罫線 + ラベル + (任意) 右側リンク。
+import type { Child } from 'hono/jsx'
 import { safeUrl } from '../lib/url'
 
 type Props = {
   label: string
   sub?: string
-  right?: any
-  children: any
+  right?: Child
+  children: Child
 }
 
 export const Section = ({ label, sub, right, children }: Props) => {
@@ -29,6 +30,6 @@ export const Section = ({ label, sub, right, children }: Props) => {
 const linkHref = (href: string): string =>
   href.startsWith('/') && !href.startsWith('//') ? href : safeUrl(href)
 
-export const ViewAll = ({ href, children }: { href: string; children: any }) => (
+export const ViewAll = ({ href, children }: { href: string; children: Child }) => (
   <a class="view-all" href={linkHref(href)}>{children}</a>
 )
