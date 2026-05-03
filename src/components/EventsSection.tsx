@@ -9,8 +9,13 @@ export const EventsSection = ({ items }: Props) => {
   return (
     <Section
       label="Events"
-      sub="connpass"
-      right={<ViewAll href="https://connpass.com/user/mizzy/">See all →</ViewAll>}
+      sub="connpass · fortee"
+      right={
+        <>
+          <ViewAll href="https://connpass.com/user/mizzy/">connpass →</ViewAll>
+          <ViewAll href="https://fortee.jp/u/mizzy">fortee →</ViewAll>
+        </>
+      }
     >
       <ul class="rows">
         {items.map((e) => (
