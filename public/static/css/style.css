@@ -125,6 +125,10 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   text-transform: none;
   color: var(--dim);
 }
+.section-right {
+  display: flex;
+  gap: 14px;
+}
 .view-all {
   font-size: 11px;
   letter-spacing: 0.16em;
