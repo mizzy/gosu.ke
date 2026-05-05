@@ -15,7 +15,12 @@ export const AchievementsPage = () => {
 
   return (
     <main class="page">
-      <p class="page-back"><a href="/">← Back to home</a></p>
+      <p class="page-back">
+        <a href="/">
+          <img src="/static/images/profile.jpg" alt="" width="32" height="32" />
+          <span>← Gosuke Miyashita</span>
+        </a>
+      </p>
       <h1 class="page-title">Achievements</h1>
 
       {cats.map((cat) => (

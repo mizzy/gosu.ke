@@ -30,7 +30,6 @@ export const layout = (
         <meta name="description" content="${description}" />
         <link rel="canonical" href="${url}" />
         <link rel="icon" type="image/jpeg" href="/static/images/favicon.jpg" />
-        <link rel="preload" as="font" type="font/woff2" href="/static/fonts/inter-latin.woff2" crossorigin />
         <link rel="stylesheet" href="/static/css/style.css" />
         <meta property="og:title" content="${title}" />
         <meta property="og:description" content="${description}" />
