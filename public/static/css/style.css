@@ -125,6 +125,11 @@ a:hover { background: transparent; color: inherit; text-decoration: none; }
   width: 2px;
   background: var(--fg);
 }
+.row .row-title,
+.row .row-link {
+  justify-self: start;
+  max-width: 100%;
+}
 
 .row-dated   { grid-template-columns: 92px 1fr; }
 .row-oss     { grid-template-columns: 1fr auto; }
