@@ -15,22 +15,22 @@ type Props = {
   repos: Repo[]
   mizzyOrg: WritingItem[]
   hateblo: WritingItem[]
-  speakerdeck: WritingItem[]
+  slides: WritingItem[]
   events: EventItem[]
 }
 
-export const HomePage = ({ repos, mizzyOrg, hateblo, speakerdeck, events }: Props) => {
+export const HomePage = ({ repos, mizzyOrg, hateblo, slides, events }: Props) => {
   return (
     <main class="home">
       <Hero />
       <OssSection repos={repos} />
       <FeaturedSection />
-      <WritingStream label="Slides" sub="Speaker Deck"  href="https://speakerdeck.com/mizzy" items={speakerdeck} />
-      <WritingStream label="Tech"   sub="mizzy.org"     href="https://mizzy.org/"        items={mizzyOrg} />
+      <WritingStream label="Slides" sub="decks.gosu.ke / Speaker Deck" links={[{ text: 'decks.gosu.ke →', href: 'https://decks.gosu.ke/' }, { text: 'Speaker Deck →', href: 'https://speakerdeck.com/mizzy' }]} items={slides} />
+      <WritingStream label="Tech"   sub="mizzy.org"     links={[{ text: 'See all →', href: 'https://mizzy.org/' }]}        items={mizzyOrg} />
       <EventsSection items={events} />
       <CareerSection />
       <EducationSection />
-      <WritingStream label="Life"   sub="Hatena"        href="https://mizzy.hateblo.jp/" items={hateblo} />
+      <WritingStream label="Life"   sub="Hatena"        links={[{ text: 'See all →', href: 'https://mizzy.hateblo.jp/' }]} items={hateblo} />
       <ChannelsSection />
     </main>
   )

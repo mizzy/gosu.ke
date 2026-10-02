@@ -14,7 +14,7 @@ import { HomePage } from './components/HomePage'
 import { AchievementsPage } from './components/AchievementsPage'
 import { CareerPage } from './components/CareerPage'
 import { getRepos } from './data/repos'
-import { getMizzyOrg, getHateblo, getSpeakerdeck } from './data/writing'
+import { getMizzyOrg, getHateblo, getSlides } from './data/writing'
 import { getEvents, ingestEvents } from './data/events'
 
 type Bindings = {
@@ -53,16 +53,16 @@ app.use('*', secureHeaders({
 }))
 
 app.get('/', async (c) => {
-  const [repos, mizzyOrg, hateblo, speakerdeck, events] = await Promise.all([
+  const [repos, mizzyOrg, hateblo, slides, events] = await Promise.all([
     getRepos(),
     getMizzyOrg(),
     getHateblo(),
-    getSpeakerdeck(),
+    getSlides(),
     getEvents(c.env.SITE_KV),
   ])
   return c.html(layout(
     'Gosuke Miyashita',
-    <HomePage repos={repos} mizzyOrg={mizzyOrg} hateblo={hateblo} speakerdeck={speakerdeck} events={events} />,
+    <HomePage repos={repos} mizzyOrg={mizzyOrg} hateblo={hateblo} slides={slides} events={events} />,
     {
       path: '/',
       description:

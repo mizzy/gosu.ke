@@ -7,13 +7,13 @@ import type { WritingItem } from '../data/writing'
 type Props = {
   label: string
   sub: string
-  href: string
+  links: { text: string; href: string }[]
   items: WritingItem[]
 }
 
-export const WritingStream = ({ label, sub, href, items }: Props) => {
+export const WritingStream = ({ label, sub, links, items }: Props) => {
   return (
-    <Section label={label} sub={sub} right={<ViewAll href={href}>See all →</ViewAll>}>
+    <Section label={label} sub={sub} right={links.map((l) => <ViewAll href={l.href}>{l.text}</ViewAll>)}>
       <ul class="rows">
         {items.map((w) => (
           <li class="row row-dated">

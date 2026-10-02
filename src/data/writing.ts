@@ -2,7 +2,7 @@
 // 各ストリームの最新エントリ。
 // - mizzy.org    : Atom フィードから動的取得 (1h キャッシュ)
 // - hateblo      : RSS フィードから動的取得 (1h キャッシュ)
-// - speakerdeck  : Atom フィードから動的取得 (1h キャッシュ)
+// - slides       : decks.gosu.ke + Speaker Deck の Atom を日付降順でマージ (1h キャッシュ)
 //
 // キャッシュ層の選定: RSS/Atom は軽量で取得失敗しても fallback がある。
 // per-edge の Cache API で十分。グローバル一貫性や定期 ingest が
@@ -114,5 +114,11 @@ const speakerdeckFallback: WritingItem[] = [
   { title: 'speakerdeck.com/mizzy', date: '', url: 'https://speakerdeck.com/mizzy' },
 ]
 
-export const getSpeakerdeck = (): Promise<WritingItem[]> =>
-  fetchFeed('https://speakerdeck.com/mizzy.atom', parseAtom, speakerdeckFallback)
+export const getSlides = async (): Promise<WritingItem[]> => {
+  const [decks, speakerdeck] = await Promise.all([
+    fetchFeed('https://decks.gosu.ke/feed.xml', parseAtom, []),
+    fetchFeed('https://speakerdeck.com/mizzy.atom', parseAtom, []),
+  ])
+  const items = [...decks, ...speakerdeck].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5)
+  return items.length ? items : speakerdeckFallback
+}
