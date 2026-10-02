@@ -8,6 +8,7 @@ const accounts = [
   { kind: 'Bluesky',      value: 'mizzy.bsky.social',      url: 'https://bsky.app/profile/mizzy.bsky.social' },
   { kind: 'mixi2',        value: 'mizzy',                  url: 'https://mixi.social/@mizzy' },
   { kind: 'Speaker Deck', value: 'mizzy',                  url: 'https://speakerdeck.com/mizzy' },
+  { kind: 'Decks',        value: 'decks.gosu.ke',          url: 'https://decks.gosu.ke/' },
   { kind: 'Blog',         value: 'mizzy.org',              url: 'https://mizzy.org/' },
   { kind: 'Hatena',       value: 'mizzy.hateblo.jp',       url: 'https://mizzy.hateblo.jp/' },
 ]
