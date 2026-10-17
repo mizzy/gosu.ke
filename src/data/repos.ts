@@ -2,7 +2,7 @@
 // 看板OSSリポジトリ。Stars は GitHub API から動的に取得し、
 // Cloudflare Cache API で 24h キャッシュする。
 //
-// キャッシュ層の選定: GitHub API は軽量で、4 リポを並列に叩いても
+// キャッシュ層の選定: GitHub API は軽量で、5 リポを並列に叩いても
 // 数百ms で済む。per-edge の Cache API で十分。グローバル一貫性が
 // 必要なら events.ts のように KV+Cron に寄せる(現状その必要なし)。
 
@@ -20,6 +20,7 @@ const repoSpecs: RepoSpec[] = [
   { name: 'mizzy/specinfra',   desc: 'Common layer for serverspec / itamae',          url: 'https://github.com/mizzy/specinfra',   fallbackStars: '300'  },
   { name: 'carina-rs/carina',  desc: 'A strongly typed infrastructure management tool', url: 'https://github.com/carina-rs/carina',  fallbackStars: '48'   },
   { name: 'mizzy/maglica',     desc: 'A simple internal cloud tool',                   url: 'https://github.com/mizzy/maglica',     fallbackStars: '48'   },
+  { name: 'mizzy/peitho',      desc: 'An HTML-native presentation tool',               url: 'https://github.com/mizzy/peitho',      fallbackStars: '43'   },
 ]
 
 const formatStars = (n: number): string => {
