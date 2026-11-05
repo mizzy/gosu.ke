@@ -31,6 +31,7 @@ export const achievements: AchievementsData = {
   awards: {
     ja: '受賞', en: 'Awards',
     items: [
+      { year: 2016, month: 4,  title: 'Thoughtworks Technology Radar', venue: 'ServerspecがTools / Trialに掲載', url: 'https://www.thoughtworks.com/radar/tools/serverspec' },
       { year: 2015, month: 10, title: '第10回 日本OSS奨励賞', venue: 'Serverspec開発によるインフラ自動化への貢献', url: 'http://www.ossforum.jp/ossaward10th2' },
       { year: 2014, month: 1,  title: 'Black Duck Open Source Rookies of the Year 2013', venue: 'Serverspecが2013年の優れた新OSSプロジェクト10種に選出', url: 'https://mag.osdn.jp/14/01/29/190000' },
     ],

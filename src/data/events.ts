@@ -35,6 +35,8 @@ const parseConnpass = (html: string): EventItem[] => {
   const items: EventItem[] = []
   const blockRe = /<div class="event_list vevent">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g
   for (const block of html.match(blockRe) ?? []) {
+    // 自分がキャンセルした回 (label_status_tag cancel) と開催中止の回 (中止) は除外
+    if (/label_status_tag cancel|label_status_event[^"]*">中止</.test(block)) continue
     const dt = block.match(/<span class="dtstart">[\s\S]*?title="([^"]+)"/)?.[1]
     const linkMatch = block.match(/<a class="url summary"\s+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/)
     if (!dt || !linkMatch) continue
