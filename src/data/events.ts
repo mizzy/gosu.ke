@@ -30,6 +30,9 @@ const LIMIT = 10
 const CONNPASS_PAGE = 'https://connpass.com/user/mizzy/'
 const FORTEE_PAGE = 'https://fortee.jp/u/mizzy'
 const FORTEE_ORIGIN = 'https://fortee.jp'
+// fortee はプロポーザルを出しただけ(不採択・不参加)のイベントもユーザーページに並ぶが、
+// HTML 上で参加有無を判別できない(チケットは外部販売のこともある)ので手で除外する。
+const FORTEE_SKIP = new Set(['/dai-kichijojipm-2026'])
 
 const parseConnpass = (html: string): EventItem[] => {
   const items: EventItem[] = []
@@ -58,6 +61,7 @@ const parseFortee = (html: string): EventItem[] => {
     const periodMatch = block.match(/<div class="period">\s*([0-9]{4}\/[0-9]{2}\/[0-9]{2})/)
     if (!titleMatch || !periodMatch) continue
     const href = decodeEntities(titleMatch[1])
+    if (FORTEE_SKIP.has(href)) continue
     const url = href.startsWith('http') ? href : `${FORTEE_ORIGIN}${href}`
     const title = decodeEntities(titleMatch[2].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim())
     const date = toDateStr(periodMatch[1].replace(/\//g, '-'))
