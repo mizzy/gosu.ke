@@ -26,7 +26,7 @@ export type EventItem = {
 
 const CONNPASS_KEY = 'events:connpass:v1'
 const FORTEE_KEY = 'events:fortee:v1'
-const LIMIT = 5
+const LIMIT = 10
 const CONNPASS_PAGE = 'https://connpass.com/user/mizzy/'
 const FORTEE_PAGE = 'https://fortee.jp/u/mizzy'
 const FORTEE_ORIGIN = 'https://fortee.jp'
